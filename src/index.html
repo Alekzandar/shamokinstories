@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="theme-color" content="#000000">
+    <!--
+      manifest.json provides metadata used when your web app is added to the
+      homescreen on Android. See https://developers.google.com/web/fundamentals/engage-and-retain/web-app-manifest/
+    -->
+    <link rel="manifest" href="./public/manifest.json">
+    <link rel="shortcut icon" href="./public/favicon.ico">
+    <!--
+      Notice the use of %PUBLIC_URL% in the tags above.
+      It will be replaced with the URL of the `public` folder during the build.
+      Only files inside the `public` folder can be referenced from the HTML.
+
+      Unlike "/favicon.ico" or "favicon.ico", "%PUBLIC_URL%/favicon.ico" will
+      work correctly both with client-side routing and a non-root public URL.
+      Learn how to configure a non-root public URL by running `npm run build`.
+    -->
+    <title>React App</title>
+  </head>
+  <body>
+    
+    <!--   <form method="post" action="/addname">
+            <label>Enter Your Name</label><br>
+            <input type="text" name="firstName" placeholder="Enter first name..." required>
+            <input type="text" name="lastName" placeholder="Enter last name..." required>
+            <input type="submit" value="Add Name">
+      </form> -->
+
+<!-- ############################################## -->
+<!-- Image Submission Modal -->
+<button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModalImage">
+    Submit New Image
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="myModalImage" tabindex="-1" role="dialog" 
+     aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <!-- Modal Header -->
+
+
+            <div class="modal-header">
+                <button type="button" class="close" 
+                   data-dismiss="modal">
+                       <span aria-hidden="true">&times;</span>
+                       <span class="sr-only">Close</span>
+                </button>
+                <h4 class="modal-title" id="myModalLabel">
+                    Enter Image Data
+                </h4>
+            </div>
+            
+            <!-- Modal Body -->
+            <div class="modal-body">
+                
+                <form class="form-horizontal" method="post" action="/addimage">
+
+                  <div class="form-group">
+                    <label  class="col-sm-2 control-label"
+                              for="src">Image Source</label>
+                    <div class="col-sm-10">
+                        <input type="text" class ="form-control"name = "src"  
+                        id="src" placeholder="drive.google.com/..."  required/>
+                    </div>
+                  </div>
+
+                  <div class="form-group">
+                    <label  class="col-sm-2 control-label"
+                              for="alt">Image Title</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" name = "alt"
+                        id="alt" placeholder="Cool Image" required/>
+                    </div>
+                  </div>
+
+                  <div class="form-group">
+                    <label class="col-sm-2 control-label"
+                          for="width" >Width</label>
+                    <div class="col-sm-10">
+                        <input type="number" class="form-control" name = "width"
+                            id="width" placeholder="width" required/>
+                    </div>
+                  </div>
+
+                  <div class="form-group">
+                    <label class="col-sm-2 control-label"
+                          for="height" >Height</label>
+                    <div class="col-sm-10">
+                        <input type="number" class="form-control" name = "height"
+                            id="height" placeholder="height" required/>
+                    </div>
+                  </div>
+
+                  <div class="form-group">
+                    <label class="col-sm-2 control-label"
+                          for="type" >Storage Type</label>
+                    <div class="col-sm-10">
+                        <input type="string" class="form-control" name = "type"
+                            id="type" placeholder = "photo" readonly value="photo" required/>
+                    </div>
+                  </div>
+
+
+                  <div class="form-group">
+                    <div class="col-sm-offset-2 col-sm-10">
+                      <button type="submit" class="btn btn-default" onclick = "setPhoto()">Submit Image</button>
+                    </div>
+                </div>
+                </form>
+          </div>
+            
+            <!-- Modal Footer -->
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" 
+                        data-dismiss="modal">
+                            Close
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- ############################################## -->
+<!-- Video Submission Modal -->
+
+<button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModalVideo">
+    Submit Youtube Video
+</button>
+
+<div class="modal fade" id="myModalVideo" tabindex="-1" role="dialog" 
+     aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <!-- Modal Header -->
+
+
+            <div class="modal-header">
+                <button type="button" class="close" 
+                   data-dismiss="modal">
+                       <span aria-hidden="true">&times;</span>
+                       <span class="sr-only">Close</span>
+                </button>
+                <h4 class="modal-title" id="vidModalLabel">
+                    Enter Youtube Video Data
+                </h4>
+            </div>
+            
+            <!-- Modal Body -->
+            <div class="modal-body">
+                
+                <form class="form-horizontal" method="post" action="/addvideo">
+
+                  <div class="form-group">
+                    <label  class="col-sm-2 control-label"
+                              for="vid-src">Youtube Thumbnail ID</label>
+                    <div class="col-sm-10">
+                        <input type="text" class ="form-control"name = "src"  
+                        id="vid-src" placeholder="drive.google.com/..."  required/>
+                    </div>
+                  </div>
+
+                  <div class="form-group">
+                    <label  class="col-sm-2 control-label"
+                              for="content">Youtube Video ID</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" name = "content"
+                        id="content" placeholder="Cool Image" required/>
+                    </div>
+                  </div>
+
+                  <div class="form-group">
+                    <label class="col-sm-2 control-label"
+                          for="vid-width" >Width</label>
+                    <div class="col-sm-10">
+                        <input type="number" class="form-control" name = "width"
+                            id="vidwidth" placeholder="width" required/>
+                    </div>
+                  </div>
+
+                  <div class="form-group">
+                    <label class="col-sm-2 control-label"
+                          for="vid-height" >Height</label>
+                    <div class="col-sm-10">
+                        <input type="number" class="form-control" name = "height"
+                            id="vid-height" placeholder="height" required/>
+                    </div>
+                  </div>
+
+                  <div class="form-group">
+                    <label class="col-sm-2 control-label"
+                          for="alt" >Storage Type</label>
+                    <div class="col-sm-10">
+                        <input type="string" class="form-control" name = "type"
+                            id="vid-type" placeholder = "video" readonly value="video" required/>
+                    </div>
+                  </div>
+
+
+                  <div class="form-group">
+                    <div class="col-sm-offset-2 col-sm-10">
+                      <button type="submit" class="btn btn-default" onclick = "setVideo()">Submit Video</button>
+                    </div>
+                </div>
+                </form>
+          </div>
+            
+            <!-- Modal Footer -->
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default"
+                        data-dismiss="modal">
+                            Close
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+
+function setVideo() {
+  document.getElementById("vid-type").value = "video";
+}
+
+function setPhoto() {
+  document.getElementById("photo-type").value = "photo";
+}
+
+</script>
+
+
+    <noscript>
+      You need to enable JavaScript to run this app.
+    </noscript>
+    <div id="root"></div>
+    <!--
+      This HTML file is a template.
+      If you open it directly in the browser, you will see an empty page.
+
+      You can add webfonts, meta tags, or analytics to this file.
+      The build step will place the bundled scripts into the <body> tag.
+
+      To begin the development, run `npm start` or `yarn start`.
+      To create a production bundle, use `npm run build` or `yarn build`.
+    -->
+  </body>
+</html>

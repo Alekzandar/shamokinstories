@@ -1,3 +1,14 @@
+# Shamokin Stories
+
+Aleksandar Antonov, Stephanie Garboski
+
+Seeking to capture the passing stories of the Shamokin area.
+
+## System Architecture:
+Front-end developed using react and bootstrap interface.
+Back-end and endpoints developed with express and through MongoDB.
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
 Below you will find some information on how to perform common tasks.<br>

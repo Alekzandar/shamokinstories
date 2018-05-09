@@ -11,6 +11,8 @@
     "prop-types": "^15.6.1",
     "react": "15.5.0",
     "react-dom": "15.5.0",
+    "react-grid-gallery": "^0.4.11",
+    "react-image-gallery": "^0.8.7",
     "react-multimedia-gallery": "0.0.13",
     "react-scripts": "1.1.4"
   },

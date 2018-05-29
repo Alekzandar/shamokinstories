@@ -27,12 +27,12 @@ var videoSchema = new mongoose.Schema({
     tags: String
 })
 
- // var nameSchema = new mongoose.Schema({
- //     firstName: String,
- //     lastName: String
- // });
+ var nameSchema = new mongoose.Schema({
+     firstName: String,
+     lastName: String
+ });
 
-//var User = mongoose.model("User", nameSchema);
+var User = mongoose.model("User", nameSchema);
 var Image = mongoose.model("Image", imageSchema);
 var Video = mongoose.model("Video", videoSchema);
 
@@ -46,23 +46,23 @@ app.get("/", (req, res) => {
     res.sendFile(__dirname + "/index.html");
 });
 
-// app.post("/addname", (req, res) => {
-//     var myData = new User(req.body);
-//     myData.save()
-//         .then(item => {
-//             res.send("Name saved to database");
-//         })
-//         .catch(err => {
-//             res.status(400).send("Unable to save to database");
-//         });
-// });
+app.post("/addname", (req, res) => {
+    var myData = new User(req.body);
+    myData.save()
+        .then(item => {
+            res.send("Name saved to database");
+        })
+        .catch(err => {
+            res.status(400).send("Unable to save to database");
+        });
+});
 
 app.post("/addimage", (req, res) => {
     var myData = new Image(req.body);
     myData.save()
-        // .then(item => {
-        //     res.send("Name saved to database");
-        // })
+        .then(item => {
+            res.send("Name saved to database");
+        })
         .catch(err => {
             res.status(400).send("Unable to save to database");
         });
@@ -71,9 +71,9 @@ app.post("/addimage", (req, res) => {
 app.post("/addvideo", (req, res) => {
     var myData = new Video(req.body);
     myData.save()
-        // .then(item => {
-        //     res.send("Name saved to database");
-        // })
+        .then(item => {
+            res.send("Name saved to database");
+        })
         .catch(err => {
             res.status(400).send("Unable to save to database");
         });
